@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
+
+h1{
+  font-size: 28px;
+  text-align: center;
+  margin: 20px;
+}
+
+.box{
+  max-width: 200px;
+  margin: 50px auto;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0,0.16) 0px 1px 4px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +52,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.active{
+  font-size: 50px;
+}
+
+.logo{
+  height:120px;
+}
+
+.add{
+  background-color: green;
+}
+
+.sub{
+  background-color: red;
+}
+.delete{
+  background-color: red;
+}
+.trigger{
+  background-color:greenyellow;
+}
+.header{
+  /* Header container */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+}
+
+/* Logo image (40px height) */
+.header img {
+  height: 40px;
+  width: auto;
+}
+
+/* Navigation link */
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #00bcd4;
+}
+
 }
