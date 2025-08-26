@@ -44,3 +44,7 @@
     padding: 7px 10px;
     margin: 10px;
 }
+
+.addtask.reset{
+    background-color: blueviolet;
+}
