@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./AddTask.css";
 
 export const AddTask = ({tasks, setTasks}) => {
 
-    const[taskValue, setTaskValue] = useState("");
+    //const[taskValue, setTaskValue] = useState("");
     const[progress, setProgress] = useState(false);
+    const taskRef = useRef("");
 
-    const handleChange = (event) => {
-        setTaskValue(event.target.value);
-    }
+    //const handleChange = (event) => {
+      //  console.log(taskRef.current.value);
+    //}
 
     const handleReset = () => {
-        setTaskValue("");
+        //setTaskValue("");
+        taskRef.current.value = "";
         setProgress(false);
     }
 
@@ -19,7 +21,7 @@ export const AddTask = ({tasks, setTasks}) => {
         event.preventDefault();
         const task = {
             id: Math.floor(Math.random() * 10000),
-            name: taskValue,
+            name: taskRef.current.value,
             completed: Boolean(progress)
         }
         setTasks([...tasks,task]);
@@ -29,7 +31,7 @@ export const AddTask = ({tasks, setTasks}) => {
   return (
     <section className="addtask">
         <form onSubmit={handleSubmit}>
-            <input onChange={(e) => setTaskValue(e.target.value)} type="text" name="task" id="task" placeholder="Task Name" autoComplete="off" value={taskValue}/>
+            <input type="text" name="task" id="task" placeholder="Task Name" autoComplete="off" ref={taskRef}/>
             <select onChange={(event) => setProgress(event.target.value)} value={progress}>
                 <option value="false">Pending</option>
                 <option value="true">Completed</option>
@@ -38,7 +40,7 @@ export const AddTask = ({tasks, setTasks}) => {
             <button type="submit">Add Task</button>
             
         </form>
-        <p>{taskValue.length}</p>
+        <p>{taskRef.current.value}</p>
     </section>
   )
 }
