@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./AddTask.css";
 
-export const AddTask = () => {
+export const AddTask = ({tasks, setTasks}) => {
 
     const[taskValue, setTaskValue] = useState("");
     const[progress, setProgress] = useState(false);
+
+    const handleChange = (event) => {
+        setTaskValue(event.target.value);
+    }
 
     const handleReset = () => {
         setTaskValue("");
@@ -12,15 +16,13 @@ export const AddTask = () => {
     }
 
     const handleSubmit = (event) => {
-
         event.preventDefault();
-
         const task = {
             id: Math.floor(Math.random() * 10000),
             name: taskValue,
             completed: Boolean(progress)
         }
-        console.log(task);
+        setTasks([...tasks,task]);
         handleReset();
     }
 
